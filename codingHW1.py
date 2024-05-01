@@ -13,5 +13,6 @@ stock_list = ['2330.TW', '2317.TW', '6505.TW', '2412.TW',
 
 # 抓取每檔股票的日資料並輸出至CSV
 for stock in stock_list:
+    stock_code = stock.split('.')[0]  # 获取股票代码的数字部分
     data = yf.download(stock, start="2020-01-01", end="2023-12-31")
-    data.to_csv(f"{stock}.csv")
+    data.to_csv(f"{stock_code}.csv")
